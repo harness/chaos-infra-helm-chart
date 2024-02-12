@@ -15,7 +15,7 @@ image:
   repository: chaosnative/workflow-controller
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "v3.4.10"
+  tag: "v3.4.14"
   imagePullSecrets: []
 
 
@@ -25,7 +25,7 @@ argoExec:
     repository: chaosnative/argoexec
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "v3.4.10"
+    tag: "v3.4.14"
 
 serviceAccount: 
   name: hce
