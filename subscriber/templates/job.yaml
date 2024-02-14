@@ -16,12 +16,12 @@ spec:
     spec:
       template:
         spec:
-          serviceAccountName: upgrade-agent-sa
+          serviceAccountName: chaos-upgrade-agent-sa
           restartPolicy: Never
           containers:
             - image: "{{ .Values.upgrader.image.registry }}/{{ .Values.upgrader.image.repository }}:{{ .Values.upgrader.image.tag }}"
               name: upgrader
-              imagePullPolicy: Always
+              imagePullPolicy: {{ .Values.image.pullPolicy }}
               readinessProbe:
                 exec:
                   command:
@@ -39,7 +39,7 @@ spec:
                     name: subscriber-secret
               env:
                 - name: ACCOUNT_IDENTIFIER
-                  value: {{ .Values.global.accountId }}
+                  value: {{ required "A valid .Values.global.accountId entry required!" .Values.global.accountId }}
                 - name: LOG_SERVICE_ENDPOINT
                   value: "{{ $AppUrl }}/log-service"
                 - name: INFRA_NAMESPACE

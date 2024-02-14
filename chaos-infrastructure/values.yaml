@@ -2,11 +2,11 @@ global:
   clusterScope:
     enabled: true
   autoUpgrade:
-    enabled: false
-  infraId: "1234"
-  accessKey: "abcd"
-  workflowInstanceId: "ddf453f"
-  accountId: acc
+    enabled: true
+  infraId: ""
+  accessKey: ""
+  workflowInstanceId: ""
+  accountId: ""
   serverAddress:  https://app.harness.io/gratis/chaos/kserver/api
 
 

@@ -12,4 +12,4 @@ data:
   {{ end }}
   executor: |
     imagePullPolicy: IfNotPresent
-  instanceID: {{ .Values.global.workflowInstanceId }}
+  instanceID: {{ required "A valid .Values.global.workflowInstanceId entry required!" .Values.global.workflowInstanceId }}

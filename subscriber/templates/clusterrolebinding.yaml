@@ -2,16 +2,16 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: upgrade-agent-role-binding
+  name: chaos-upgrade-agent-role-binding
   labels:
     {{- include "subscriber.labels" . | nindent 4 }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: upgrade-agent-cr
+  name: chaos-upgrade-agent-cr
 subjects:
   - kind: ServiceAccount
-    name: upgrade-agent-sa
+    name: chaos-upgrade-agent-sa
     namespace: {{ .Release.Namespace }}
 ---
 apiVersion: rbac.authorization.k8s.io/v1

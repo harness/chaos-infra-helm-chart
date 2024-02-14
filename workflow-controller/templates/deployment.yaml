@@ -32,6 +32,7 @@ spec:
             - workflow-controller
           image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           name: workflow-controller
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
           securityContext:
             {{- toYaml .Values.SecurityContext | nindent 12 }}
           env:
