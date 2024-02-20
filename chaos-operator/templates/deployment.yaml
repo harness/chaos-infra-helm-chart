@@ -6,8 +6,7 @@ metadata:
     app.kubernetes.io/version: v2.0.0
     app.kubernetes.io/component: operator
     app.kubernetes.io/part-of: litmus
-    app.kubernetes.io/managed-by: kubectl
-    name: litmus
+    name: chaos-operator
     {{- include "chaos-operator.labels" . | nindent 4 }}
   name: chaos-operator-ce
   namespace: {{ .Release.Namespace }}
@@ -26,7 +25,6 @@ spec:
         app.kubernetes.io/version: latest
         app.kubernetes.io/component: operator
         app.kubernetes.io/part-of: litmus
-        app.kubernetes.io/managed-by: kubectl
         name: chaos-operator
         {{- include "chaos-operator.selectorLabels" . | nindent 8 }}
     spec:

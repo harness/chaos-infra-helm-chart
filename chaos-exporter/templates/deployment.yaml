@@ -3,7 +3,6 @@ kind: Deployment
 metadata:
   labels:
     app: chaos-exporter
-    release: prometheus-stack
     {{- include "chaos-exporter.labels" . | nindent 4 }}
   name: chaos-exporter
   namespace: {{ .Release.Namespace }}
@@ -12,13 +11,11 @@ spec:
   selector:
     matchLabels:
       app: chaos-exporter
-      release: prometheus-stack
       {{- include "chaos-exporter.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
         app: chaos-exporter
-        release: prometheus-stack
         {{- include "chaos-exporter.selectorLabels" . | nindent 8 }}
     spec:
     {{- with .Values.image.imagePullSecrets }}
