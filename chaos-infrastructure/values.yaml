@@ -39,6 +39,8 @@ subscriber:
 
   connectionType: HTTPS
 
+  isInfraConfirmed: "false"
+
   isSecretEnabled: "true"
 
 

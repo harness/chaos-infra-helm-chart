@@ -73,6 +73,7 @@ A Helm chart to install chaos infrastructure
 | subscriber.image.registry | string | `"docker.io"` |  |
 | subscriber.image.repository | string | `"chaosnative/harness-chaos-subscriber"` |  |
 | subscriber.image.tag | string | `"1.30.0"` |  |
+| subscriber.isInfraConfirmed | string | `"false"` |  |
 | subscriber.isSecretEnabled | string | `"true"` |  |
 | subscriber.nodeSelector | object | `{}` |  |
 | subscriber.resources.limits.cpu | string | `"225m"` |  |

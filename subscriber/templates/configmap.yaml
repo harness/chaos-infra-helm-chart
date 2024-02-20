@@ -16,9 +16,5 @@ data:
     DEPLOYMENTS: ["app=chaos-exporter", "name=chaos-operator", "app=workflow-controller"]
   CONNECTION_TYPE: "{{ .Values.connectionType }}"
   IS_SECRET_ENABLED: "{{ .Values.isSecretEnabled }}"
-  {{ if not .Release.IsUpgrade }}
-  IS_INFRA_CONFIRMED: "false"
-  {{ else }}
-  IS_INFRA_CONFIRMED: "true"
-  {{ end }}
+  IS_INFRA_CONFIRMED: "{{ .Values.isInfraConfirmed }}"
   START_TIME: "{{- printf "%d" (div (now.UnixNano) 1000000) }}"

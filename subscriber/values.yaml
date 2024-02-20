@@ -36,6 +36,8 @@ customTlsCert: ""
 
 connectionType: HTTPS
 
+isInfraConfirmed: "false"
+
 isSecretEnabled: "true"
 
 

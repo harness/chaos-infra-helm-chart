@@ -23,6 +23,7 @@ A Helm chart to install subscriber
 | image.registry | string | `"docker.io"` |  |
 | image.repository | string | `"chaosnative/harness-chaos-subscriber"` |  |
 | image.tag | string | `"1.30.0"` |  |
+| isInfraConfirmed | string | `"false"` |  |
 | isSecretEnabled | string | `"true"` |  |
 | nodeSelector | object | `{}` |  |
 | resources.limits.cpu | string | `"225m"` |  |
