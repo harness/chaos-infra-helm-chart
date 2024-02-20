@@ -1,6 +1,6 @@
 apiVersion: v2
 name: chaos-crds
-description: A Helm chart for Kubernetes
+description: A Helm chart to install Harness chaos crds
 
 # A chart can be either an 'application' or a 'library' chart.
 #

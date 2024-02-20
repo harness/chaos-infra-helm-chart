@@ -1,6 +1,6 @@
 apiVersion: v2
 name: chaos-infra
-description: A Helm chart for Kubernetes
+description: A Helm chart to install chaos infrastructure
 
 # A chart can be either an 'application' or a 'library' chart.
 #
@@ -27,16 +27,31 @@ dependencies:
   - name: subscriber
     version: 0.0.1
     repository: "file://../subscriber"
+    tags:
+     - clusterScopeMode
+     - namespaceMode
   - name: workflow-controller
     version: 0.0.1
     repository: "file://../workflow-controller"
+    tags:
+     - clusterScopeMode
+     - namespaceMode
   - name: chaos-operator
     version: 0.0.1
     repository: "file://../chaos-operator"
+    tags:
+     - clusterScopeMode
+     - namespaceMode
   - name: chaos-exporter
     version: 0.0.1
     repository: "file://../chaos-exporter"
-  - condition: global.clusterScope.enabled
-    name: chaos-crds
+    tags:
+     - clusterScopeMode
+     - namespaceMode
+  - name: chaos-crds
     version: 0.0.1
     repository: "file://../chaos-crds"
+    tags:
+     - clusterScopeMode
+     - crdMode
+  

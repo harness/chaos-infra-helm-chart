@@ -1,3 +1,7 @@
+tags:  
+  clusterScopeMode: false
+  namespaceMode: false
+  crdMode: false
 global:
   clusterScope:
     enabled: true
@@ -7,7 +11,7 @@ global:
   accessKey: ""
   workflowInstanceId: ""
   accountId: ""
-  serverAddress:  https://app.harness.io/gratis/chaos/kserver/api
+  serverAddress: "https://app.harness.io/gratis/chaos/kserver/api"
 
 
 subscriber:

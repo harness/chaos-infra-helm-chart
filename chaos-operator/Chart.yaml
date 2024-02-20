@@ -1,6 +1,6 @@
 apiVersion: v2
 name: chaos-operator
-description: A Helm chart for Kubernetes
+description: A Helm chart to install chaos-operator
 
 # A chart can be either an 'application' or a 'library' chart.
 #

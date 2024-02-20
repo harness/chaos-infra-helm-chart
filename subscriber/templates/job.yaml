@@ -1,4 +1,4 @@
-{{ if and .Values.global.clusterScope.enabled .Values.global.autoUpgrade.enabled -}}
+{{ if and  .Values.global.clusterScope.enabled .Values.global.autoUpgrade.enabled -}}
 {{- $url := .Values.global.serverAddress -}}
 {{- $AppUrl := regexReplaceAll "(?i)/chaos/kserver/api" $url "" -}}
 apiVersion: batch/v1
@@ -39,7 +39,7 @@ spec:
                     name: subscriber-secret
               env:
                 - name: ACCOUNT_IDENTIFIER
-                  value: {{ required "A valid .Values.global.accountId entry required!" .Values.global.accountId }}
+                  value: "{{ required "A valid .Values.global.accountId entry required!" .Values.global.accountId }}"
                 - name: LOG_SERVICE_ENDPOINT
                   value: "{{ $AppUrl }}/log-service"
                 - name: INFRA_NAMESPACE
