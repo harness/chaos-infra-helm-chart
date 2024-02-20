@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: subscriber-config
+  namespace: {{ .Release.Namespace }}
+data:
+  SERVER_ADDR: {{ .Values.global.serverAddress }}
+  {{ if not .Values.global.clusterScope.enabled -}}
+  INFRA_SCOPE: namespace
+  {{ else }}
+  INFRA_SCOPE: cluster
+  {{ end }}
+  VERSION: "{{ .Values.version }}"
+  SKIP_SSL_VERIFY: "{{ .Values.skipSslVerify }}"
+  COMPONENTS: |
+    DEPLOYMENTS: ["app=chaos-exporter", "name=chaos-operator", "app=workflow-controller"]
+  CONNECTION_TYPE: "{{ .Values.connectionType }}"
+  IS_SECRET_ENABLED: "{{ .Values.isSecretEnabled }}"
+  IS_INFRA_CONFIRMED: "{{ .Values.isInfraConfirmed }}"
+  START_TIME: "{{- printf "%d" (div (now.UnixNano) 1000000) }}"

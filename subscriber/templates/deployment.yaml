@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: subscriber
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: subscriber
+    {{- include "subscriber.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      app: subscriber
+      {{- include "subscriber.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        app: subscriber
+        {{- include "subscriber.selectorLabels" . | nindent 8 }}
+    spec:
+    {{- with .Values.image.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+    {{ end }}
+      serviceAccountName: {{ .Values.serviceAccount.name }}
+      containers:
+        - name: subscriber
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          readinessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - curl --fail -s {{ if eq .Values.skipSslVerify "true" }} -k {{- end }} {{ .Values.global.serverAddress }}/status -o /dev/null
+            initialDelaySeconds: 5
+            periodSeconds: 10
+            timeoutSeconds: 5
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          envFrom:
+            - configMapRef:
+                name: subscriber-config
+            - secretRef:
+                name: subscriber-secret
+          env:
+            - name: INFRA_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}   
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}

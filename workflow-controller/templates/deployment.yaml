@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: workflow-controller
+  namespace: {{ .Release.Namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: workflow-controller
+      {{- include "workflow-controller.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        app: workflow-controller
+        {{- include "workflow-controller.selectorLabels" . | nindent 8 }}
+    spec:
+    {{- with .Values.image.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+    {{ end }}
+      containers:
+        - args:
+            
+            - --configmap
+            - workflow-controller-configmap
+            - --executor-image
+            - {{ .Values.argoExec.image.registry }}/{{ .Values.argoExec.image.repository }}:{{ .Values.argoExec.image.tag }} 
+            {{ if not .Values.global.clusterScope.enabled -}}
+            - --namespaced
+            {{ end }}
+          command:
+            - workflow-controller
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          name: workflow-controller
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          securityContext:
+            {{- toYaml .Values.SecurityContext | nindent 12 }}
+          env:
+            - name: LEADER_ELECTION_DISABLE
+              value: "true"
+            - name: POD_NAMES
+              value: "v1"
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}   
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+
+      serviceAccountName: {{ .Values.serviceAccount.name }}

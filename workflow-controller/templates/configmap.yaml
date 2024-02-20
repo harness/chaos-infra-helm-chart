@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: workflow-controller-configmap
+  namespace: {{ .Release.Namespace }}
+data:
+  {{- with .Values.image.imagePullSecrets }}
+  workflowDefaults: |
+    spec:
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+  {{ end }}
+  executor: |
+    imagePullPolicy: IfNotPresent
+  instanceID: {{ required "A valid .Values.global.workflowInstanceId entry required!" .Values.global.workflowInstanceId }}

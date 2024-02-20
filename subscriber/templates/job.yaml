@@ -1,0 +1,52 @@
+{{ if and  .Values.global.clusterScope.enabled .Values.global.autoUpgrade.enabled -}}
+{{- $url := .Values.global.serverAddress -}}
+{{- $AppUrl := regexReplaceAll "(?i)/chaos/kserver/api" $url "" -}}
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  labels:
+    hce/name: k8s-chaos-infrastructure-upgrader
+    {{- include "subscriber.labels" . | nindent 4 }}
+  name: k8s-chaos-infrastructure-upgrader
+  namespace: {{ .Release.Namespace }}
+spec:
+  schedule: "0 0 * * *"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: chaos-upgrade-agent-sa
+          restartPolicy: Never
+          containers:
+            - image: "{{ .Values.upgrader.image.registry }}/{{ .Values.upgrader.image.repository }}:{{ .Values.upgrader.image.tag }}"
+              name: upgrader
+              imagePullPolicy: {{ .Values.image.pullPolicy }}
+              readinessProbe:
+                exec:
+                  command:
+                    - /bin/sh
+                    - -c
+                    - curl --fail -s {{ if eq .Values.skipSslVerify "true" }} -k {{- end }} {{ .Values.global.serverAddress }}/status -o /dev/null
+                initialDelaySeconds: 5
+                periodSeconds: 10
+              securityContext:
+                {{- toYaml .Values.securityContext | nindent 16 }}
+              envFrom:
+                - configMapRef:
+                    name: subscriber-config
+                - secretRef:
+                    name: subscriber-secret
+              env:
+                - name: ACCOUNT_IDENTIFIER
+                  value: "{{ required "A valid .Values.global.accountId entry required!" .Values.global.accountId }}"
+                - name: LOG_SERVICE_ENDPOINT
+                  value: "{{ $AppUrl }}/log-service"
+                - name: INFRA_NAMESPACE
+                  valueFrom:
+                    fieldRef:
+                      apiVersion: v1
+                      fieldPath: metadata.namespace
+              resources:
+                {{- toYaml .Values.resources | nindent 16 }}
+{{ end }}

@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: chaos-exporter
+    {{- include "chaos-exporter.labels" . | nindent 4 }}
+  name: chaos-exporter
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chaos-exporter
+      {{- include "chaos-exporter.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        app: chaos-exporter
+        {{- include "chaos-exporter.selectorLabels" . | nindent 8 }}
+    spec:
+    {{- with .Values.image.imagePullSecrets }}
+      imagePullSecrets:
+        {{- toYaml . | nindent 8 }}
+    {{ end }}
+      containers:
+        - image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          name: chaos-exporter
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          ports:
+            - containerPort: 8080
+              name: tcp
+          env:
+            - name: TSDB_SCRAPE_INTERVAL
+              value: '10'
+            - name: INJECTION_TIME_FILTER
+              value: 'disable'
+            {{ if not .Values.global.clusterScope.enabled -}}
+            - name: WATCH_NAMESPACE
+              value: {{ .Release.Namespace }}
+            {{ end }}
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }} 
+      serviceAccountName: {{ .Values.serviceAccount.name }}
+      {{- with .Values.nodeSelector }}
+      nodeSelector:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.tolerations }}
+      tolerations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.affinity }}
+      affinity:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
