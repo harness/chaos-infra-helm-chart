@@ -14,7 +14,7 @@ A Helm chart to install subscriber
 | global.accessKey | string | `""` |  |
 | global.accountId | string | `""` |  |
 | global.autoUpgrade.enabled | bool | `true` |  |
-| global.clusterScope.enabled | bool | `false` |  |
+| global.clusterScope.enabled | bool | `true` |  |
 | global.infraId | string | `""` |  |
 | global.serverAddress | string | `"https://app.harness.io/gratis/chaos/kserver/api"` |  |
 | global.workflowInstanceId | string | `""` |  |
@@ -35,7 +35,7 @@ A Helm chart to install subscriber
 | securityContext.runAsGroup | int | `2000` |  |
 | securityContext.runAsUser | int | `2000` |  |
 | serviceAccount.name | string | `"hce"` |  |
-| skipSslVerify | string | `"false"` |  |
+| skipSslVerify | string | `"true"` |  |
 | tolerations | list | `[]` |  |
 | upgrader.image.imagePullSecrets | list | `[]` |  |
 | upgrader.image.pullPolicy | string | `"Always"` |  |

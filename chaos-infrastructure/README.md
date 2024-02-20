@@ -85,7 +85,7 @@ A Helm chart to install chaos infrastructure
 | subscriber.securityContext.runAsGroup | int | `2000` |  |
 | subscriber.securityContext.runAsUser | int | `2000` |  |
 | subscriber.serviceAccount.name | string | `"hce"` |  |
-| subscriber.skipSslVerify | string | `"false"` |  |
+| subscriber.skipSslVerify | string | `"true"` |  |
 | subscriber.tolerations | list | `[]` |  |
 | subscriber.upgrader.image.imagePullSecrets | list | `[]` |  |
 | subscriber.upgrader.image.pullPolicy | string | `"Always"` |  |
@@ -100,12 +100,12 @@ A Helm chart to install chaos infrastructure
 | workflow-controller.argoExec.image.pullPolicy | string | `"Always"` |  |
 | workflow-controller.argoExec.image.registry | string | `"docker.io"` |  |
 | workflow-controller.argoExec.image.repository | string | `"chaosnative/argoexec"` |  |
-| workflow-controller.argoExec.image.tag | string | `"v3.4.10"` |  |
+| workflow-controller.argoExec.image.tag | string | `"v3.4.16"` |  |
 | workflow-controller.image.imagePullSecrets | list | `[]` |  |
 | workflow-controller.image.pullPolicy | string | `"Always"` |  |
 | workflow-controller.image.registry | string | `"docker.io"` |  |
 | workflow-controller.image.repository | string | `"chaosnative/workflow-controller"` |  |
-| workflow-controller.image.tag | string | `"v3.4.10"` |  |
+| workflow-controller.image.tag | string | `"v3.4.16"` |  |
 | workflow-controller.nodeSelector | object | `{}` |  |
 | workflow-controller.resources.limits.cpu | string | `"225m"` |  |
 | workflow-controller.resources.limits.ephemeral-storage | string | `"1Gi"` |  |

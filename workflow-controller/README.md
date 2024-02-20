@@ -1,6 +1,6 @@
 # workflow-controller
 
-![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.4.10](https://img.shields.io/badge/AppVersion-3.4.10-informational?style=flat-square)
+![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.4.16](https://img.shields.io/badge/AppVersion-3.4.16-informational?style=flat-square)
 
 A Helm chart to install workflow-controller
 
@@ -12,7 +12,7 @@ A Helm chart to install workflow-controller
 | argoExec.image.pullPolicy | string | `"Always"` |  |
 | argoExec.image.registry | string | `"docker.io"` |  |
 | argoExec.image.repository | string | `"chaosnative/argoexec"` |  |
-| argoExec.image.tag | string | `"v3.4.14"` |  |
+| argoExec.image.tag | string | `"v3.4.16"` |  |
 | global.accessKey | string | `""` |  |
 | global.accountId | string | `""` |  |
 | global.autoUpgrade.enabled | bool | `true` |  |
@@ -24,7 +24,7 @@ A Helm chart to install workflow-controller
 | image.pullPolicy | string | `"Always"` |  |
 | image.registry | string | `"docker.io"` |  |
 | image.repository | string | `"chaosnative/workflow-controller"` |  |
-| image.tag | string | `"v3.4.14"` |  |
+| image.tag | string | `"v3.4.16"` |  |
 | nodeSelector | object | `{}` |  |
 | resources.limits.cpu | string | `"225m"` |  |
 | resources.limits.ephemeral-storage | string | `"1Gi"` |  |
