@@ -35,7 +35,7 @@ subscriber:
   customTlsCert: ""
   version: 1.30.0
 
-  skipSslVerify: "false"
+  skipSslVerify: "true"
 
   connectionType: HTTPS
 

@@ -1,6 +1,6 @@
 global:
   clusterScope:
-    enabled: false
+    enabled: true
   autoUpgrade:
     enabled: true
   infraId: ""
@@ -30,7 +30,7 @@ upgrader:
 
 version: 1.30.0
 
-skipSslVerify: "false"
+skipSslVerify: "true"
 
 customTlsCert: "" 
 

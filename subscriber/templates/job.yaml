@@ -27,7 +27,7 @@ spec:
                   command:
                     - /bin/sh
                     - -c
-                    - curl --fail -s -k {{ .Values.global.serverAddress }}/status -o /dev/null
+                    - curl --fail -s {{ if eq .Values.skipSslVerify "true" }} -k {{- end }} {{ .Values.global.serverAddress }}/status -o /dev/null
                 initialDelaySeconds: 5
                 periodSeconds: 10
               securityContext:
