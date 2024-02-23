@@ -34,7 +34,7 @@ jobs:
       - name: Run Chart Releaser
         uses: helm/chart-releaser-action@v1.4.0
         with:
-          charts_dir: .
+          charts_dir: ../
         env:
           CR_TOKEN: "${{ secrets.TOKEN }}"
           CR_SKIP_EXISTING: 'true'
