@@ -33,4 +33,3 @@ jobs:
           charts_dir: src
         env:
           CR_TOKEN: "${{ secrets.TOKEN }}"
-          CR_SKIP_EXISTING: 'true'
