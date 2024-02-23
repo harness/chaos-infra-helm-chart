@@ -13,7 +13,6 @@ global:
   accountId: ""
   serverAddress: "https://app.harness.io/gratis/chaos/kserver/api"
 
-
 subscriber:
   image:
     registry: docker.io
