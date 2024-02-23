@@ -42,4 +42,15 @@ entries:
     urls:
     - https://github.com/harness/chaos-infra-helm-chart/releases/download/chaos-infra-0.0.1/chaos-infra-0.0.1.tgz
     version: 0.0.1
-generated: "2024-02-23T07:19:07.510721677Z"
+  subscriber:
+  - apiVersion: v2
+    appVersion: 1.30.0
+    created: "2024-02-23T12:16:37.909456112Z"
+    description: A Helm chart to install subscriber
+    digest: 31bf553efab6c1b41989f249e3ffde5c37011ec26f4c4ee3440129406ddca5e8
+    name: subscriber
+    type: application
+    urls:
+    - https://github.com/harness/chaos-infra-helm-chart/releases/download/subscriber-0.0.1/subscriber-0.0.1.tgz
+    version: 0.0.1
+generated: "2024-02-23T12:16:37.909468516Z"
