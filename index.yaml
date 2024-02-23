@@ -1,0 +1,45 @@
+apiVersion: v1
+entries:
+  chaos-infra:
+  - apiVersion: v2
+    appVersion: 1.30.0
+    created: "2024-02-23T12:28:04.094738089Z"
+    dependencies:
+    - name: subscriber
+      repository: file://../subscriber
+      tags:
+      - clusterScopeMode
+      - namespaceMode
+      version: 0.0.1
+    - name: workflow-controller
+      repository: file://../workflow-controller
+      tags:
+      - clusterScopeMode
+      - namespaceMode
+      version: 0.0.1
+    - name: chaos-operator
+      repository: file://../chaos-operator
+      tags:
+      - clusterScopeMode
+      - namespaceMode
+      version: 0.0.1
+    - name: chaos-exporter
+      repository: file://../chaos-exporter
+      tags:
+      - clusterScopeMode
+      - namespaceMode
+      version: 0.0.1
+    - name: chaos-crds
+      repository: file://../chaos-crds
+      tags:
+      - clusterScopeMode
+      - crdMode
+      version: 0.0.1
+    description: A Helm chart to install chaos infrastructure
+    digest: a48627ac3e2b5a2ac23ea4ebe0f6eb8ca478611fc57cecfcbeae58a14a637b39
+    name: chaos-infra
+    type: application
+    urls:
+    - https://github.com/harness/chaos-infra-helm-chart/releases/download/chaos-infra-0.0.1/chaos-infra-0.0.1.tgz
+    version: 0.0.1
+generated: "2024-02-23T12:28:04.094750312Z"
