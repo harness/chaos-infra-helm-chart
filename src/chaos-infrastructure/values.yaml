@@ -42,7 +42,6 @@ subscriber:
 
   isSecretEnabled: "true"
 
-
   serviceAccount: 
     name: hce
 
