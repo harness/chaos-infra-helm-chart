@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  subscriber:
+  - apiVersion: v2
+    appVersion: 1.30.0
+    created: "2024-02-23T12:22:30.367496862Z"
+    description: A Helm chart to install subscriber
+    digest: 52e17ed76274e1dc1f0a44d9a309c84727c79f52990a445e029b82f515678343
+    name: subscriber
+    type: application
+    urls:
+    - https://github.com/harness/chaos-infra-helm-chart/releases/download/subscriber-0.0.1/subscriber-0.0.1.tgz
+    version: 0.0.1
+generated: "2024-02-23T12:22:30.367523552Z"
