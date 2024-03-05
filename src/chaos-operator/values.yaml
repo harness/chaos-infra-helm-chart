@@ -12,19 +12,19 @@ global:
 
 image:
   registry: docker.io
-  repository: chaosnative/chaos-operator
+  repository: harness/chaos-operator
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.30.0"
+  tag: "1.32.0"
   imagePullSecrets: []
 
 chaosRunner:
   image:
     registry: docker.io
-    repository: chaosnative/chaos-runner
+    repository: harness/chaos-runner
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "1.30.0"
+    tag: "1.32.0"
 
 serviceAccount: 
   name: hce

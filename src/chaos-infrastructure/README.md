@@ -1,6 +1,6 @@
 # chaos-infra
 
-![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.30.0](https://img.shields.io/badge/AppVersion-1.30.0-informational?style=flat-square)
+![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.32.0](https://img.shields.io/badge/AppVersion-1.32.0-informational?style=flat-square)
 
 A Helm chart to install chaos infrastructure
 
@@ -8,11 +8,11 @@ A Helm chart to install chaos infrastructure
 
 | Repository | Name | Version |
 |------------|------|---------|
-| file://../chaos-crds | chaos-crds | 0.0.1 |
-| file://../chaos-exporter | chaos-exporter | 0.0.1 |
-| file://../chaos-operator | chaos-operator | 0.0.1 |
-| file://../subscriber | subscriber | 0.0.1 |
-| file://../workflow-controller | workflow-controller | 0.0.1 |
+| file://../chaos-crds | chaos-crds | 0.0.2 |
+| file://../chaos-exporter | chaos-exporter | 0.0.2 |
+| file://../chaos-operator | chaos-operator | 0.0.2 |
+| file://../subscriber | subscriber | 0.0.2 |
+| file://../workflow-controller | workflow-controller | 0.0.2 |
 
 ## Values
 
@@ -22,8 +22,8 @@ A Helm chart to install chaos infrastructure
 | chaos-exporter.image.imagePullSecrets | list | `[]` |  |
 | chaos-exporter.image.pullPolicy | string | `"Always"` |  |
 | chaos-exporter.image.registry | string | `"docker.io"` |  |
-| chaos-exporter.image.repository | string | `"chaosnative/chaos-exporter"` |  |
-| chaos-exporter.image.tag | string | `"1.30.0"` |  |
+| chaos-exporter.image.repository | string | `"harness/chaos-exporter"` |  |
+| chaos-exporter.image.tag | string | `"1.32.0"` |  |
 | chaos-exporter.nodeSelector | object | `{}` |  |
 | chaos-exporter.resources.limits.cpu | string | `"225m"` |  |
 | chaos-exporter.resources.limits.ephemeral-storage | string | `"1Gi"` |  |
@@ -39,13 +39,13 @@ A Helm chart to install chaos infrastructure
 | chaos-operator.affinity | object | `{}` |  |
 | chaos-operator.chaosRunner.image.pullPolicy | string | `"Always"` |  |
 | chaos-operator.chaosRunner.image.registry | string | `"docker.io"` |  |
-| chaos-operator.chaosRunner.image.repository | string | `"chaosnative/chaos-runner"` |  |
-| chaos-operator.chaosRunner.image.tag | string | `"1.30.0"` |  |
+| chaos-operator.chaosRunner.image.repository | string | `"harness/chaos-runner"` |  |
+| chaos-operator.chaosRunner.image.tag | string | `"1.32.0"` |  |
 | chaos-operator.image.imagePullSecrets | list | `[]` |  |
 | chaos-operator.image.pullPolicy | string | `"Always"` |  |
 | chaos-operator.image.registry | string | `"docker.io"` |  |
-| chaos-operator.image.repository | string | `"chaosnative/chaos-operator"` |  |
-| chaos-operator.image.tag | string | `"1.30.0"` |  |
+| chaos-operator.image.repository | string | `"harness/chaos-operator"` |  |
+| chaos-operator.image.tag | string | `"1.32.0"` |  |
 | chaos-operator.nodeSelector | object | `{}` |  |
 | chaos-operator.resources.limits.cpu | string | `"225m"` |  |
 | chaos-operator.resources.limits.ephemeral-storage | string | `"1Gi"` |  |
@@ -71,8 +71,8 @@ A Helm chart to install chaos infrastructure
 | subscriber.image.imagePullSecrets | list | `[]` |  |
 | subscriber.image.pullPolicy | string | `"Always"` |  |
 | subscriber.image.registry | string | `"docker.io"` |  |
-| subscriber.image.repository | string | `"chaosnative/harness-chaos-subscriber"` |  |
-| subscriber.image.tag | string | `"1.30.0"` |  |
+| subscriber.image.repository | string | `"harness/chaos-subscriber"` |  |
+| subscriber.image.tag | string | `"1.32.0"` |  |
 | subscriber.isInfraConfirmed | string | `"false"` |  |
 | subscriber.isSecretEnabled | string | `"true"` |  |
 | subscriber.nodeSelector | object | `{}` |  |
@@ -91,21 +91,21 @@ A Helm chart to install chaos infrastructure
 | subscriber.upgrader.image.imagePullSecrets | list | `[]` |  |
 | subscriber.upgrader.image.pullPolicy | string | `"Always"` |  |
 | subscriber.upgrader.image.registry | string | `"docker.io"` |  |
-| subscriber.upgrader.image.repository | string | `"chaosnative/harness-k8s-chaos-infrastructure-upgrader"` |  |
-| subscriber.upgrader.image.tag | string | `"1.30.0"` |  |
-| subscriber.version | string | `"1.30.0"` |  |
+| subscriber.upgrader.image.repository | string | `"harness/k8s-chaos-infrastructure-upgrader"` |  |
+| subscriber.upgrader.image.tag | string | `"1.32.0"` |  |
+| subscriber.version | string | `"1.32.0"` |  |
 | tags.clusterScopeMode | bool | `false` |  |
 | tags.crdMode | bool | `false` |  |
 | tags.namespaceMode | bool | `false` |  |
 | workflow-controller.affinity | object | `{}` |  |
 | workflow-controller.argoExec.image.pullPolicy | string | `"Always"` |  |
 | workflow-controller.argoExec.image.registry | string | `"docker.io"` |  |
-| workflow-controller.argoExec.image.repository | string | `"chaosnative/argoexec"` |  |
+| workflow-controller.argoExec.image.repository | string | `"harness/chaos-argoexec"` |  |
 | workflow-controller.argoExec.image.tag | string | `"v3.4.16"` |  |
 | workflow-controller.image.imagePullSecrets | list | `[]` |  |
 | workflow-controller.image.pullPolicy | string | `"Always"` |  |
 | workflow-controller.image.registry | string | `"docker.io"` |  |
-| workflow-controller.image.repository | string | `"chaosnative/workflow-controller"` |  |
+| workflow-controller.image.repository | string | `"harness/chaos-workflow-controller"` |  |
 | workflow-controller.image.tag | string | `"v3.4.16"` |  |
 | workflow-controller.nodeSelector | object | `{}` |  |
 | workflow-controller.resources.limits.cpu | string | `"225m"` |  |

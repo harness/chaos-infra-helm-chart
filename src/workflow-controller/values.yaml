@@ -12,7 +12,7 @@ global:
 
 image:
   registry: docker.io
-  repository: chaosnative/workflow-controller
+  repository: harness/chaos-workflow-controller
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "v3.4.16"
@@ -22,7 +22,7 @@ image:
 argoExec:
   image:
     registry: docker.io
-    repository: chaosnative/argoexec
+    repository: harness/chaos-argoexec
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
     tag: "v3.4.16"

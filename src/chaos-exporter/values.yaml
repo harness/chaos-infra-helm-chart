@@ -12,10 +12,10 @@ global:
 
 image:
   registry: docker.io
-  repository: chaosnative/chaos-exporter
+  repository: harness/chaos-exporter
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.30.0"
+  tag: "1.32.0"
   imagePullSecrets: []
 
 serviceAccount: 
