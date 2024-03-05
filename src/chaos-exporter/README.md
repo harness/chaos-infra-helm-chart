@@ -1,6 +1,6 @@
 # chaos-exporter
 
-![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.30.0](https://img.shields.io/badge/AppVersion-1.30.0-informational?style=flat-square)
+![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.32.0](https://img.shields.io/badge/AppVersion-1.32.0-informational?style=flat-square)
 
 A Helm chart for Kubernetes
 
@@ -19,8 +19,8 @@ A Helm chart for Kubernetes
 | image.imagePullSecrets | list | `[]` |  |
 | image.pullPolicy | string | `"Always"` |  |
 | image.registry | string | `"docker.io"` |  |
-| image.repository | string | `"chaosnative/chaos-exporter"` |  |
-| image.tag | string | `"1.30.0"` |  |
+| image.repository | string | `"harness/chaos-exporter"` |  |
+| image.tag | string | `"1.32.0"` |  |
 | nodeSelector | object | `{}` |  |
 | resources.limits.cpu | string | `"225m"` |  |
 | resources.limits.ephemeral-storage | string | `"1Gi"` |  |

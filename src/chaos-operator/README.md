@@ -1,6 +1,6 @@
 # chaos-operator
 
-![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.30.0](https://img.shields.io/badge/AppVersion-1.30.0-informational?style=flat-square)
+![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.32.0](https://img.shields.io/badge/AppVersion-1.32.0-informational?style=flat-square)
 
 A Helm chart to install chaos-operator
 
@@ -11,8 +11,8 @@ A Helm chart to install chaos-operator
 | affinity | object | `{}` |  |
 | chaosRunner.image.pullPolicy | string | `"Always"` |  |
 | chaosRunner.image.registry | string | `"docker.io"` |  |
-| chaosRunner.image.repository | string | `"chaosnative/chaos-runner"` |  |
-| chaosRunner.image.tag | string | `"1.30.0"` |  |
+| chaosRunner.image.repository | string | `"harness/chaos-runner"` |  |
+| chaosRunner.image.tag | string | `"1.32.0"` |  |
 | global.accessKey | string | `""` |  |
 | global.accountId | string | `""` |  |
 | global.autoUpgrade.enabled | bool | `true` |  |
@@ -23,8 +23,8 @@ A Helm chart to install chaos-operator
 | image.imagePullSecrets | list | `[]` |  |
 | image.pullPolicy | string | `"Always"` |  |
 | image.registry | string | `"docker.io"` |  |
-| image.repository | string | `"chaosnative/chaos-operator"` |  |
-| image.tag | string | `"1.30.0"` |  |
+| image.repository | string | `"harness/chaos-operator"` |  |
+| image.tag | string | `"1.32.0"` |  |
 | nodeSelector | object | `{}` |  |
 | resources.limits.cpu | string | `"225m"` |  |
 | resources.limits.ephemeral-storage | string | `"1Gi"` |  |

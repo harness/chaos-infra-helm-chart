@@ -12,23 +12,23 @@ global:
 
 image:
   registry: docker.io
-  repository: chaosnative/harness-chaos-subscriber
+  repository: harness/chaos-subscriber
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.30.0"
+  tag: "1.32.0"
   imagePullSecrets: []
 
 upgrader:
   image:
     registry: docker.io
-    repository: chaosnative/harness-k8s-chaos-infrastructure-upgrader
+    repository: harness/k8s-chaos-infrastructure-upgrader
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "1.30.0"
+    tag: "1.32.0"
     imagePullSecrets: []
 
 
-version: 1.30.0
+version: 1.32.0
 
 skipSslVerify: "true"
 
