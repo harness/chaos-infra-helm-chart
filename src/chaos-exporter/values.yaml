@@ -15,7 +15,7 @@ image:
   repository: harness/chaos-exporter
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.32.0"
+  tag: "1.33.0"
   imagePullSecrets: []
 
 serviceAccount: 
