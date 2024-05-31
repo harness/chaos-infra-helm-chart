@@ -2,7 +2,7 @@ global:
   clusterScope:
     enabled: true
   autoUpgrade:
-    enabled: true
+    enabled: false
   infraId: ""
   accessKey: ""
   workflowInstanceId: ""
@@ -15,7 +15,7 @@ image:
   repository: harness/chaos-subscriber
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.33.0"
+  tag: "1.38.0"
   imagePullSecrets: []
 
 upgrader:
@@ -24,11 +24,11 @@ upgrader:
     repository: harness/k8s-chaos-infrastructure-upgrader
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "1.33.0"
+    tag: "1.38.0"
     imagePullSecrets: []
 
 
-version: 1.33.0
+version: 1.38.0
 
 skipSslVerify: "true"
 
