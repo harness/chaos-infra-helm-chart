@@ -40,7 +40,7 @@ A Helm chart to install chaos infrastructure
 | chaos-operator.chaosRunner.image.pullPolicy | string | `"Always"` |  |
 | chaos-operator.chaosRunner.image.registry | string | `"docker.io"` |  |
 | chaos-operator.chaosRunner.image.repository | string | `"harness/chaos-runner"` |  |
-| chaos-operator.chaosRunner.image.tag | string | `"1.38.0"` |  |
+| chaos-operator.chaosRunner.image.tag | string | `"1.38.1"` |  |
 | chaos-operator.image.imagePullSecrets | list | `[]` |  |
 | chaos-operator.image.pullPolicy | string | `"Always"` |  |
 | chaos-operator.image.registry | string | `"docker.io"` |  |
