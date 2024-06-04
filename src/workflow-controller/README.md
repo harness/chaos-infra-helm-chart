@@ -1,6 +1,6 @@
 # workflow-controller
 
-![Version: 0.0.3](https://img.shields.io/badge/Version-0.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.4.16](https://img.shields.io/badge/AppVersion-3.4.16-informational?style=flat-square)
+![Version: 0.0.4](https://img.shields.io/badge/Version-0.0.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.4.16](https://img.shields.io/badge/AppVersion-3.4.16-informational?style=flat-square)
 
 A Helm chart to install workflow-controller
 
@@ -15,7 +15,7 @@ A Helm chart to install workflow-controller
 | argoExec.image.tag | string | `"v3.4.16"` |  |
 | global.accessKey | string | `""` |  |
 | global.accountId | string | `""` |  |
-| global.autoUpgrade.enabled | bool | `true` |  |
+| global.autoUpgrade.enabled | bool | `false` |  |
 | global.clusterScope.enabled | bool | `false` |  |
 | global.infraId | string | `""` |  |
 | global.serverAddress | string | `"https://app.harness.io/gratis/chaos/kserver/api"` |  |
