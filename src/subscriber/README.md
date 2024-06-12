@@ -42,7 +42,7 @@ A Helm chart to install subscriber
 | upgrader.image.pullPolicy | string | `"Always"` |  |
 | upgrader.image.registry | string | `"docker.io"` |  |
 | upgrader.image.repository | string | `"harness/k8s-chaos-infrastructure-upgrader"` |  |
-| upgrader.image.tag | string | `"1.38.0"` |  |
+| upgrader.image.tag | string | `"1.38.1"` |  |
 | version | string | `"1.38.0"` |  |
 
 ----------------------------------------------

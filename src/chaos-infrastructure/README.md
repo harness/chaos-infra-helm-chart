@@ -72,7 +72,7 @@ A Helm chart to install chaos infrastructure
 | subscriber.image.pullPolicy | string | `"Always"` |  |
 | subscriber.image.registry | string | `"docker.io"` |  |
 | subscriber.image.repository | string | `"harness/chaos-subscriber"` |  |
-| subscriber.image.tag | string | `"1.38.0"` |  |
+| subscriber.image.tag | string | `"1.38.1"` |  |
 | subscriber.isInfraConfirmed | string | `"false"` |  |
 | subscriber.isSecretEnabled | string | `"true"` |  |
 | subscriber.nodeSelector | object | `{}` |  |
