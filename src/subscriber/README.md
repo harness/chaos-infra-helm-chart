@@ -22,7 +22,7 @@ A Helm chart to install subscriber
 | image.pullPolicy | string | `"Always"` |  |
 | image.registry | string | `"docker.io"` |  |
 | image.repository | string | `"harness/chaos-subscriber"` |  |
-| image.tag | string | `"1.38.0"` |  |
+| image.tag | string | `"1.38.1"` |  |
 | isInfraConfirmed | string | `"false"` |  |
 | isSecretEnabled | string | `"true"` |  |
 | nodeSelector | object | `{}` |  |

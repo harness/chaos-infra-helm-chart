@@ -12,7 +12,7 @@ A Helm chart to install chaos-operator
 | chaosRunner.image.pullPolicy | string | `"Always"` |  |
 | chaosRunner.image.registry | string | `"docker.io"` |  |
 | chaosRunner.image.repository | string | `"harness/chaos-runner"` |  |
-| chaosRunner.image.tag | string | `"1.38.0"` |  |
+| chaosRunner.image.tag | string | `"1.38.1"` |  |
 | global.accessKey | string | `""` |  |
 | global.accountId | string | `""` |  |
 | global.autoUpgrade.enabled | bool | `false` |  |
