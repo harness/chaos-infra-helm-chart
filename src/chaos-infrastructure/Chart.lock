@@ -1,18 +1,18 @@
 dependencies:
 - name: subscriber
   repository: file://../subscriber
-  version: 0.0.4
+  version: 0.0.5
 - name: workflow-controller
   repository: file://../workflow-controller
   version: 0.0.4
 - name: chaos-operator
   repository: file://../chaos-operator
-  version: 0.0.4
+  version: 0.0.5
 - name: chaos-exporter
   repository: file://../chaos-exporter
   version: 0.0.4
 - name: chaos-crds
   repository: file://../chaos-crds
   version: 0.0.4
-digest: sha256:f069268672362fce5491e28349c05f2b5269fbed65238b3356d548b32001b22e
-generated: "2024-05-31T12:41:20.113366+05:30"
+digest: sha256:a3f68f7fadb558e6eb92e3cb6477e79f0055ae780e7729aef888987668390e9b
+generated: "2024-06-12T22:14:22.848698+05:30"
