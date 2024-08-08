@@ -2,15 +2,32 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: chaos-role-binding
+  name: argo-chaos-infra-role-binding
   namespace: {{ .Release.Namespace }}
   labels:
-    name: chaos-role-binding
+    name: argo-chaos-infra-role-binding
     {{- include "workflow-controller.labels" . | nindent 4 }}
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role
-  name: chaos-role
+  name: infra-role
+subjects:
+  - kind: ServiceAccount
+    name: argo-chaos
+    namespace: {{ .Release.Namespace }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: argo-chaos-ops-role-binding
+  namespace: {{ .Release.Namespace }}
+  labels:
+    name: argo-chaos-ops-role-binding
+    {{- include "workflow-controller.labels" . | nindent 4 }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: infra-ops-role
 subjects:
   - kind: ServiceAccount
     name: argo-chaos
