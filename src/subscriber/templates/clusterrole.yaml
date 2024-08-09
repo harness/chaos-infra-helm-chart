@@ -279,9 +279,9 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: litmus-admin
+  name: litmus-admin-cluster-role
   labels:
-    name: litmus-admin
+    name: litmus-admin-cluster-role
     {{- include "subscriber.labels" . | nindent 4 }}
 rules:
   # ***************************************************************************************
@@ -298,11 +298,6 @@ rules:
   - apiGroups: [""]
     resources: ["events"]
     verbs: ["create","get","list","patch","update"]
-
-    # for fetching configmaps and secrets to inject into chaos-runner pod (if specified)
-  - apiGroups: [""]
-    resources: ["secrets", "configmaps"]
-    verbs: ["get", "list"]
 
     # for tracking & getting logs of the pods created by chaos-runner to implement individual steps in the runner
   - apiGroups: [""]
@@ -387,11 +382,6 @@ rules:
   # Permissions needed for orchestration and monitoring chaos by chaos-operator and chaos-exporter
   # ***********************************************************************************************
 
-  # for mounting the secrets to the chaos-runner pod
-  - apiGroups: [ "" ]
-    resources: [ "secrets" ]
-    verbs: [ "get", "list" ]
-
   # for deriving the owner references of the operator pod
   - apiGroups: [ "apps" ]
     resources: [ "deployments", "replicasets"]
@@ -407,9 +397,9 @@ rules:
     resources: [ "pods" ]
     verbs: ["get", "create", "update", "patch", "delete", "list", "watch", "deletecollection" ]
 
-  # for creating of events, monitoring and leader election
+  # for creating of events, monitoring
   - apiGroups: [ "" ]
-    resources: [ "configmaps", "events", "services" ]
+    resources: ["events", "services" ]
     verbs: ["get", "create", "update", "patch", "list", "watch" ]
 
   # for creation, status polling and deletion of litmus chaos resources used within a chaos workflow
@@ -435,10 +425,6 @@ rules:
   # ******************************************************************************************************
   # Permissions needed to manage and communicate between control plane and execution plane by subscriber
   # *******************************************************************************************************
-
-  - apiGroups: [ "" ]
-    resources: [ "configmaps", "secrets" ]
-    verbs: [ "get", "create", "delete", "update", "patch" ]
 
   - apiGroups: [ "batch" ]
     resources: [ "jobs" ]
@@ -517,4 +503,18 @@ rules:
   - apiGroups: [ "policy" ]
     resources: [ "poddisruptionbudgets" ]
     verbs: [ "create", "get", "delete" ]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: infra-ops-role
+  namespace: {{ .Release.Namespace }}
+rules:
+  - apiGroups: [ "" ]
+    resources: [ "secrets" ]
+    verbs: [ "get", "create", "update", "patch" ]
+
+  - apiGroups: [ "" ]
+    resources: [ "configmaps"]
+    verbs: ["get", "create", "update", "patch", "list", "watch" ]
 {{ end }}
