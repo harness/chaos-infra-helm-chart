@@ -1,6 +1,6 @@
 # chaos-operator
 
-![Version: 0.0.6](https://img.shields.io/badge/Version-0.0.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.39.0](https://img.shields.io/badge/AppVersion-1.39.0-informational?style=flat-square)
+![Version: 0.0.7](https://img.shields.io/badge/Version-0.0.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.41.0](https://img.shields.io/badge/AppVersion-1.41.0-informational?style=flat-square)
 
 A Helm chart to install chaos-operator
 
@@ -12,7 +12,7 @@ A Helm chart to install chaos-operator
 | chaosRunner.image.pullPolicy | string | `"Always"` |  |
 | chaosRunner.image.registry | string | `"docker.io"` |  |
 | chaosRunner.image.repository | string | `"harness/chaos-runner"` |  |
-| chaosRunner.image.tag | string | `"1.39.1"` |  |
+| chaosRunner.image.tag | string | `"1.41.0"` |  |
 | global.accessKey | string | `""` |  |
 | global.accountId | string | `""` |  |
 | global.autoUpgrade.enabled | bool | `false` |  |
@@ -24,7 +24,7 @@ A Helm chart to install chaos-operator
 | image.pullPolicy | string | `"Always"` |  |
 | image.registry | string | `"docker.io"` |  |
 | image.repository | string | `"harness/chaos-operator"` |  |
-| image.tag | string | `"1.39.1"` |  |
+| image.tag | string | `"1.41.0"` |  |
 | nodeSelector | object | `{}` |  |
 | resources.limits.cpu | string | `"225m"` |  |
 | resources.limits.ephemeral-storage | string | `"1Gi"` |  |

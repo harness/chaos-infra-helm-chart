@@ -43,6 +43,21 @@ spec:
             - secretRef:
                 name: subscriber-secret
           env:
+            - name: ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  key: {{ .Values.secrets.env.accessKey.key }}
+                  name: {{ .Values.secrets.env.accessKey.secretName }}
+            - name: INFRA_ID
+              valueFrom:
+                secretKeyRef:
+                  key: {{ .Values.secrets.env.infraId.key }}
+                  name: {{ .Values.secrets.env.infraId.secretName }}
+            - name: CUSTOM_TLS_CERT
+              valueFrom:
+                secretKeyRef:
+                  key: {{ .Values.secrets.env.customTlsCert.key }}
+                  name: {{ .Values.secrets.env.customTlsCert.secretName }}            
             - name: INFRA_NAMESPACE
               valueFrom:
                 fieldRef:

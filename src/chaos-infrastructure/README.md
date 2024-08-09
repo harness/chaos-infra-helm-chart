@@ -8,11 +8,11 @@ A Helm chart to install chaos infrastructure
 
 | Repository | Name | Version |
 |------------|------|---------|
-| file://../chaos-crds | chaos-crds | 0.0.5 |
-| file://../chaos-exporter | chaos-exporter | 0.0.5 |
-| file://../chaos-operator | chaos-operator | 0.0.6 |
-| file://../subscriber | subscriber | 0.0.6 |
-| file://../workflow-controller | workflow-controller | 0.0.4 |
+| file://../chaos-crds | chaos-crds | 0.0.6 |
+| file://../chaos-exporter | chaos-exporter | 0.0.6 |
+| file://../chaos-operator | chaos-operator | 0.0.7 |
+| file://../subscriber | subscriber | 0.0.8 |
+| file://../workflow-controller | workflow-controller | 0.0.5 |
 
 ## Values
 
@@ -23,7 +23,7 @@ A Helm chart to install chaos infrastructure
 | chaos-exporter.image.pullPolicy | string | `"Always"` |  |
 | chaos-exporter.image.registry | string | `"docker.io"` |  |
 | chaos-exporter.image.repository | string | `"harness/chaos-exporter"` |  |
-| chaos-exporter.image.tag | string | `"1.39.1"` |  |
+| chaos-exporter.image.tag | string | `"1.41.0"` |  |
 | chaos-exporter.nodeSelector | object | `{}` |  |
 | chaos-exporter.resources.limits.cpu | string | `"225m"` |  |
 | chaos-exporter.resources.limits.ephemeral-storage | string | `"1Gi"` |  |
@@ -40,12 +40,12 @@ A Helm chart to install chaos infrastructure
 | chaos-operator.chaosRunner.image.pullPolicy | string | `"Always"` |  |
 | chaos-operator.chaosRunner.image.registry | string | `"docker.io"` |  |
 | chaos-operator.chaosRunner.image.repository | string | `"harness/chaos-runner"` |  |
-| chaos-operator.chaosRunner.image.tag | string | `"1.39.1"` |  |
+| chaos-operator.chaosRunner.image.tag | string | `"1.41.0"` |  |
 | chaos-operator.image.imagePullSecrets | list | `[]` |  |
 | chaos-operator.image.pullPolicy | string | `"Always"` |  |
 | chaos-operator.image.registry | string | `"docker.io"` |  |
 | chaos-operator.image.repository | string | `"harness/chaos-operator"` |  |
-| chaos-operator.image.tag | string | `"1.39.1"` |  |
+| chaos-operator.image.tag | string | `"1.41.0"` |  |
 | chaos-operator.nodeSelector | object | `{}` |  |
 | chaos-operator.resources.limits.cpu | string | `"225m"` |  |
 | chaos-operator.resources.limits.ephemeral-storage | string | `"1Gi"` |  |
@@ -72,7 +72,7 @@ A Helm chart to install chaos infrastructure
 | subscriber.image.pullPolicy | string | `"Always"` |  |
 | subscriber.image.registry | string | `"docker.io"` |  |
 | subscriber.image.repository | string | `"harness/chaos-subscriber"` |  |
-| subscriber.image.tag | string | `"1.39.0"` |  |
+| subscriber.image.tag | string | `"1.41.0"` |  |
 | subscriber.isInfraConfirmed | string | `"false"` |  |
 | subscriber.isSecretEnabled | string | `"true"` |  |
 | subscriber.nodeSelector | object | `{}` |  |
@@ -82,6 +82,12 @@ A Helm chart to install chaos infrastructure
 | subscriber.resources.requests.cpu | string | `"125m"` |  |
 | subscriber.resources.requests.ephemeral-storage | string | `"500Mi"` |  |
 | subscriber.resources.requests.memory | string | `"300Mi"` |  |
+| subscriber.secrets.env.accessKey.key | string | `"ACCESS_KEY"` |  |
+| subscriber.secrets.env.accessKey.secretName | string | `"subscriber-secret"` |  |
+| subscriber.secrets.env.customTlsCert.key | string | `"CUSTOM_TLS_CERT"` |  |
+| subscriber.secrets.env.customTlsCert.secretName | string | `"subscriber-secret"` |  |
+| subscriber.secrets.env.infraId.key | string | `"INFRA_ID"` |  |
+| subscriber.secrets.env.infraId.secretName | string | `"subscriber-secret"` |  |
 | subscriber.securityContext.allowPrivilegeEscalation | bool | `false` |  |
 | subscriber.securityContext.runAsGroup | int | `2000` |  |
 | subscriber.securityContext.runAsUser | int | `2000` |  |
@@ -92,8 +98,8 @@ A Helm chart to install chaos infrastructure
 | subscriber.upgrader.image.pullPolicy | string | `"Always"` |  |
 | subscriber.upgrader.image.registry | string | `"docker.io"` |  |
 | subscriber.upgrader.image.repository | string | `"harness/k8s-chaos-infrastructure-upgrader"` |  |
-| subscriber.upgrader.image.tag | string | `"1.39.0"` |  |
-| subscriber.version | string | `"1.39.0"` |  |
+| subscriber.upgrader.image.tag | string | `"1.41.0"` |  |
+| subscriber.version | string | `"1.41.0"` |  |
 | tags.clusterScopeMode | bool | `false` |  |
 | tags.crdMode | bool | `false` |  |
 | tags.namespaceMode | bool | `false` |  |
