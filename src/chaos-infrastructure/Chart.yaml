@@ -15,41 +15,41 @@ type: application
 # This is the chart version. This version number should be incremented each time you make changes
 # to the chart and its templates, including the app version.
 # Versions are expected to follow Semantic Versioning (https://semver.org/)
-version: 0.0.6
+version: 0.0.7
 
 # This is the version number of the application being deployed. This version number should be
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
-appVersion: "1.39.0"
+appVersion: "1.41.0"
 
 dependencies:
   - name: subscriber
-    version: 0.0.8
+    version: 0.0.9
     repository: "file://../subscriber"
     tags:
      - clusterScopeMode
      - namespaceMode
   - name: workflow-controller
-    version: 0.0.5
+    version: 0.0.6
     repository: "file://../workflow-controller"
     tags:
      - clusterScopeMode
      - namespaceMode
   - name: chaos-operator
-    version: 0.0.7
+    version: 0.0.8
     repository: "file://../chaos-operator"
     tags:
      - clusterScopeMode
      - namespaceMode
   - name: chaos-exporter
-    version: 0.0.6
+    version: 0.0.7
     repository: "file://../chaos-exporter"
     tags:
      - clusterScopeMode
      - namespaceMode
   - name: chaos-crds
-    version: 0.0.6
+    version: 0.0.7
     repository: "file://../chaos-crds"
     tags:
      - clusterScopeMode
