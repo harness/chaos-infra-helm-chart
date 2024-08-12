@@ -2,6 +2,16 @@ apiVersion: v1
 entries:
   chaos-crds:
   - apiVersion: v2
+    appVersion: 1.41.0
+    created: "2024-08-12T11:28:19.408768323Z"
+    description: A Helm chart to install Harness chaos crds
+    digest: 3625e364565302b66875ef83026748492ce0e6d2985f8672b2b41a7f81780258
+    name: chaos-crds
+    type: application
+    urls:
+    - https://github.com/harness/chaos-infra-helm-chart/releases/download/chaos-crds-0.0.7/chaos-crds-0.0.7.tgz
+    version: 0.0.7
+  - apiVersion: v2
     appVersion: 1.39.0
     created: "2024-06-24T10:19:24.461658626Z"
     description: A Helm chart to install Harness chaos crds
@@ -43,6 +53,16 @@ entries:
     version: 0.0.2
   chaos-exporter:
   - apiVersion: v2
+    appVersion: 1.41.0
+    created: "2024-08-12T11:28:19.516076589Z"
+    description: A Helm chart for Kubernetes
+    digest: d79379b8dbba9ba89006322cec9f022cae2333d0c8b566364ca5b470366675f8
+    name: chaos-exporter
+    type: application
+    urls:
+    - https://github.com/harness/chaos-infra-helm-chart/releases/download/chaos-exporter-0.0.7/chaos-exporter-0.0.7.tgz
+    version: 0.0.7
+  - apiVersion: v2
     appVersion: 1.39.1
     created: "2024-06-24T10:19:24.616518343Z"
     description: A Helm chart for Kubernetes
@@ -83,6 +103,47 @@ entries:
     - https://github.com/harness/chaos-infra-helm-chart/releases/download/chaos-exporter-0.0.2/chaos-exporter-0.0.2.tgz
     version: 0.0.2
   chaos-infra:
+  - apiVersion: v2
+    appVersion: 1.41.0
+    created: "2024-08-12T11:28:19.626670793Z"
+    dependencies:
+    - name: subscriber
+      repository: file://../subscriber
+      tags:
+      - clusterScopeMode
+      - namespaceMode
+      version: 0.0.9
+    - name: workflow-controller
+      repository: file://../workflow-controller
+      tags:
+      - clusterScopeMode
+      - namespaceMode
+      version: 0.0.6
+    - name: chaos-operator
+      repository: file://../chaos-operator
+      tags:
+      - clusterScopeMode
+      - namespaceMode
+      version: 0.0.8
+    - name: chaos-exporter
+      repository: file://../chaos-exporter
+      tags:
+      - clusterScopeMode
+      - namespaceMode
+      version: 0.0.7
+    - name: chaos-crds
+      repository: file://../chaos-crds
+      tags:
+      - clusterScopeMode
+      - crdMode
+      version: 0.0.7
+    description: A Helm chart to install chaos infrastructure
+    digest: e4663f44a1f9c41bcdf31f0466ff7ceaf1ec19f94949bdbf79c719124bb08c78
+    name: chaos-infra
+    type: application
+    urls:
+    - https://github.com/harness/chaos-infra-helm-chart/releases/download/chaos-infra-0.0.7/chaos-infra-0.0.7.tgz
+    version: 0.0.7
   - apiVersion: v2
     appVersion: 1.39.0
     created: "2024-06-24T10:19:24.803802162Z"
@@ -331,6 +392,16 @@ entries:
     version: 0.0.1
   chaos-operator:
   - apiVersion: v2
+    appVersion: 1.41.0
+    created: "2024-08-12T11:28:19.739874907Z"
+    description: A Helm chart to install chaos-operator
+    digest: 9a66e898a449e8747dda4d6c2234167d2932bce44e85c72dac0c2023e434fcb9
+    name: chaos-operator
+    type: application
+    urls:
+    - https://github.com/harness/chaos-infra-helm-chart/releases/download/chaos-operator-0.0.8/chaos-operator-0.0.8.tgz
+    version: 0.0.8
+  - apiVersion: v2
     appVersion: 1.39.0
     created: "2024-06-24T10:19:24.958943021Z"
     description: A Helm chart to install chaos-operator
@@ -381,6 +452,16 @@ entries:
     - https://github.com/harness/chaos-infra-helm-chart/releases/download/chaos-operator-0.0.2/chaos-operator-0.0.2.tgz
     version: 0.0.2
   subscriber:
+  - apiVersion: v2
+    appVersion: 1.41.0
+    created: "2024-08-12T11:28:19.864225591Z"
+    description: A Helm chart to install subscriber
+    digest: 0cf24cb0f9bbd947d1a7dbbaf893c81bbf74887d5e429cc6196d9ee5b9f61882
+    name: subscriber
+    type: application
+    urls:
+    - https://github.com/harness/chaos-infra-helm-chart/releases/download/subscriber-0.0.9/subscriber-0.0.9.tgz
+    version: 0.0.9
   - apiVersion: v2
     appVersion: 1.39.0
     created: "2024-06-24T10:19:25.140998012Z"
@@ -434,6 +515,16 @@ entries:
   workflow-controller:
   - apiVersion: v2
     appVersion: 3.4.16
+    created: "2024-08-12T11:28:19.955500143Z"
+    description: A Helm chart to install workflow-controller
+    digest: eabcd801536d6815f9f4bd27383ce3f18020d44116476e9e2c0276a0413005df
+    name: workflow-controller
+    type: application
+    urls:
+    - https://github.com/harness/chaos-infra-helm-chart/releases/download/workflow-controller-0.0.6/workflow-controller-0.0.6.tgz
+    version: 0.0.6
+  - apiVersion: v2
+    appVersion: 3.4.16
     created: "2024-06-04T08:56:31.939554062Z"
     description: A Helm chart to install workflow-controller
     digest: cfa5ebcfbbaf11a1e69b83ed3c0a86473fb2cc5635db25ac26d1f1e25c075ed8
@@ -462,4 +553,4 @@ entries:
     urls:
     - https://github.com/harness/chaos-infra-helm-chart/releases/download/workflow-controller-0.0.2/workflow-controller-0.0.2.tgz
     version: 0.0.2
-generated: "2024-06-24T10:19:25.141079665Z"
+generated: "2024-08-12T11:28:19.955636017Z"
