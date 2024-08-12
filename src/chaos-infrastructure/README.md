@@ -1,6 +1,6 @@
 # chaos-infra
 
-![Version: 0.0.6](https://img.shields.io/badge/Version-0.0.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.39.0](https://img.shields.io/badge/AppVersion-1.39.0-informational?style=flat-square)
+![Version: 0.0.7](https://img.shields.io/badge/Version-0.0.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.41.0](https://img.shields.io/badge/AppVersion-1.41.0-informational?style=flat-square)
 
 A Helm chart to install chaos infrastructure
 
@@ -8,11 +8,11 @@ A Helm chart to install chaos infrastructure
 
 | Repository | Name | Version |
 |------------|------|---------|
-| file://../chaos-crds | chaos-crds | 0.0.6 |
-| file://../chaos-exporter | chaos-exporter | 0.0.6 |
-| file://../chaos-operator | chaos-operator | 0.0.7 |
-| file://../subscriber | subscriber | 0.0.8 |
-| file://../workflow-controller | workflow-controller | 0.0.5 |
+| file://../chaos-crds | chaos-crds | 0.0.7 |
+| file://../chaos-exporter | chaos-exporter | 0.0.7 |
+| file://../chaos-operator | chaos-operator | 0.0.8 |
+| file://../subscriber | subscriber | 0.0.9 |
+| file://../workflow-controller | workflow-controller | 0.0.6 |
 
 ## Values
 
