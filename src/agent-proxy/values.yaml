@@ -11,9 +11,10 @@ global:
 replicaCount: 1
 
 image:
-  repository: index.docker.io/harness/chaos-agent-proxy
-  pullPolicy: IfNotPresent
+  registry: docker.io
+  repository: harness/chaos-agent-proxy
   tag: main-latest
+  pullPolicy: IfNotPresent
 
 imagePullSecrets: []
 nameOverride: ""
