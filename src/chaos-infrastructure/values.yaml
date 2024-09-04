@@ -2,6 +2,7 @@ tags:
   clusterScopeMode: false
   namespaceMode: false
   crdMode: false
+  agentProxy: false
 global:
   clusterScope:
     enabled: true
@@ -178,6 +179,71 @@ chaos-exporter:
   affinity: {}
   tolerations: []
 
+agent-proxy:
+  replicaCount: 1
+
+  image:
+    repository: index.docker.io/harness/chaos-agent-proxy
+    pullPolicy: IfNotPresent
+    tag: main-latest
+
+  imagePullSecrets: []
+  nameOverride: ""
+  fullnameOverride: ""
+
+  podAnnotations: {}
+  podLabels: {}
+
+  podSecurityContext:
+    fsGroup: 2000
+
+  securityContext:
+    capabilities:
+      drop:
+      - ALL
+    readOnlyRootFilesystem: true
+    runAsNonRoot: true
+    runAsUser: 1000
+
+  service:
+    type: ClusterIP
 
 
+  resources:
+    limits:
+      cpu: 100m
+      memory: 128Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
 
+  autoscaling:
+    enabled: false
+    minReplicas: 1
+    maxReplicas: 10
+    targetCPUUtilizationPercentage: 80
+    targetMemoryUtilizationPercentage: 80
+
+  # Additional volumes on the output Deployment definition.
+  volumes: []
+  #- name: client-certificate
+  #  secret:
+  #    secretName: client-certificate
+
+  # Additional volumeMounts on the output Deployment definition.
+  volumeMounts: []
+  #- mountPath: /etc/mtls
+  #  name: client-certificate
+  #  readOnly: true
+
+  env: []
+  # - name: PROXY_CLIENT_CERT_PATH
+  #  value: /etc/mtls/client.crt
+  #- name: PROXY_CLIENT_KEY_PATH
+  #  value: /etc/mtls/client.key
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

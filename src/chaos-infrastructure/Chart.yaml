@@ -54,4 +54,9 @@ dependencies:
     tags:
      - clusterScopeMode
      - crdMode
+  - name: agent-proxy
+    version: 0.0.1
+    repository: "file://../agent-proxy"
+    tags:
+     - agentProxy
   
