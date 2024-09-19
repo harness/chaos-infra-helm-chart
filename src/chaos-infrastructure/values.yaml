@@ -185,7 +185,7 @@ agent-proxy:
   image:
     registry: docker.io
     repository: harness/chaos-agent-proxy
-    tag: main-latest
+    tag: 1.45.0
     pullPolicy: IfNotPresent
     imagePullSecrets: []
 
