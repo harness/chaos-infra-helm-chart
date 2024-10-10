@@ -3,6 +3,16 @@ entries:
   agent-proxy:
   - apiVersion: v2
     appVersion: 1.45.0
+    created: "2024-10-10T07:48:01.125526006Z"
+    description: A Helm chart for Kubernetes
+    digest: 5a77cacf2e842fee8fc375c616d1c99f0c428c52ed02a9b31ad16b35581b287e
+    name: agent-proxy
+    type: application
+    urls:
+    - https://github.com/harness/chaos-infra-helm-chart/releases/download/agent-proxy-0.0.4/agent-proxy-0.0.4.tgz
+    version: 0.0.4
+  - apiVersion: v2
+    appVersion: 1.45.0
     created: "2024-09-19T07:00:58.605929387Z"
     description: A Helm chart for Kubernetes
     digest: 245e9f67003631518aee0ce7e19d6efd9a0849dcb0b684b1a5c432516f6df39d
@@ -114,6 +124,52 @@ entries:
     - https://github.com/harness/chaos-infra-helm-chart/releases/download/chaos-exporter-0.0.2/chaos-exporter-0.0.2.tgz
     version: 0.0.2
   chaos-infra:
+  - apiVersion: v2
+    appVersion: 1.47.0
+    created: "2024-10-10T07:48:01.352538743Z"
+    dependencies:
+    - name: subscriber
+      repository: file://../subscriber
+      tags:
+      - clusterScopeMode
+      - namespaceMode
+      version: 0.0.10
+    - name: workflow-controller
+      repository: file://../workflow-controller
+      tags:
+      - clusterScopeMode
+      - namespaceMode
+      version: 0.0.7
+    - name: chaos-operator
+      repository: file://../chaos-operator
+      tags:
+      - clusterScopeMode
+      - namespaceMode
+      version: 0.0.9
+    - name: chaos-exporter
+      repository: file://../chaos-exporter
+      tags:
+      - clusterScopeMode
+      - namespaceMode
+      version: 0.0.8
+    - name: chaos-crds
+      repository: file://../chaos-crds
+      tags:
+      - clusterScopeMode
+      - crdMode
+      version: 0.0.8
+    - name: agent-proxy
+      repository: file://../agent-proxy
+      tags:
+      - agentProxy
+      version: 0.0.4
+    description: A Helm chart to install chaos infrastructure
+    digest: 085d3e48fde60b13bccd191ea0cdc464e56728c7938eccc76babb45303fada99
+    name: chaos-infra
+    type: application
+    urls:
+    - https://github.com/harness/chaos-infra-helm-chart/releases/download/chaos-infra-0.0.10/chaos-infra-0.0.10.tgz
+    version: 0.0.10
   - apiVersion: v2
     appVersion: 1.41.1
     created: "2024-09-19T07:00:58.706717858Z"
@@ -656,4 +712,4 @@ entries:
     urls:
     - https://github.com/harness/chaos-infra-helm-chart/releases/download/workflow-controller-0.0.2/workflow-controller-0.0.2.tgz
     version: 0.0.2
-generated: "2024-09-19T07:00:58.706817785Z"
+generated: "2024-10-10T07:48:01.352614544Z"
