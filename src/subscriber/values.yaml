@@ -14,7 +14,7 @@ image:
   repository: harness/chaos-subscriber
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.41.0"
+  tag: "1.47.0"
   imagePullSecrets: []
 
 upgrader:
@@ -23,7 +23,7 @@ upgrader:
     repository: harness/k8s-chaos-infrastructure-upgrader
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "1.41.0"
+    tag: "1.47.0"
     imagePullSecrets: []
 
 secrets:
@@ -46,7 +46,7 @@ secrets:
 
 
     
-version: 1.41.0
+version: 1.47.0
 
 skipSslVerify: "true"
 
