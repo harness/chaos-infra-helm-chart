@@ -16,6 +16,6 @@ dependencies:
   version: 0.0.8
 - name: agent-proxy
   repository: file://../agent-proxy
-  version: 0.0.2
-digest: sha256:4bc8c07dd28cb5e8bf3b45fabca4905211c1224c14dd4525d92407d41234db69
-generated: "2024-10-10T12:50:31.551287+05:30"
+  version: 0.0.4
+digest: sha256:f300205a2dc5098095480cd4549a718ef8a46895c4ea8ba7aa78b5cd3940f37c
+generated: "2024-10-10T13:11:14.286581+05:30"
