@@ -8,7 +8,7 @@ A Helm chart to install chaos infrastructure
 
 | Repository | Name | Version |
 |------------|------|---------|
-| file://../agent-proxy | agent-proxy | 0.0.2 |
+| file://../agent-proxy | agent-proxy | 0.0.4 |
 | file://../chaos-crds | chaos-crds | 0.0.8 |
 | file://../chaos-exporter | chaos-exporter | 0.0.8 |
 | file://../chaos-operator | chaos-operator | 0.0.9 |
