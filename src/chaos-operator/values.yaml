@@ -15,7 +15,7 @@ image:
   repository: harness/chaos-operator
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "1.41.0"
+  tag: "1.47.0"
   imagePullSecrets: []
 
 chaosRunner:
@@ -24,7 +24,7 @@ chaosRunner:
     repository: harness/chaos-runner
     pullPolicy: Always
     # Overrides the image tag whose default is the chart appVersion.
-    tag: "1.41.0"
+    tag: "1.47.0"
 
 serviceAccount: 
   name: hce

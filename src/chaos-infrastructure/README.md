@@ -1,6 +1,6 @@
 # chaos-infra
 
-![Version: 0.0.7](https://img.shields.io/badge/Version-0.0.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.41.0](https://img.shields.io/badge/AppVersion-1.41.0-informational?style=flat-square)
+![Version: 0.0.10](https://img.shields.io/badge/Version-0.0.10-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 1.47.0](https://img.shields.io/badge/AppVersion-1.47.0-informational?style=flat-square)
 
 A Helm chart to install chaos infrastructure
 
@@ -8,22 +8,50 @@ A Helm chart to install chaos infrastructure
 
 | Repository | Name | Version |
 |------------|------|---------|
-| file://../chaos-crds | chaos-crds | 0.0.7 |
-| file://../chaos-exporter | chaos-exporter | 0.0.7 |
-| file://../chaos-operator | chaos-operator | 0.0.8 |
-| file://../subscriber | subscriber | 0.0.9 |
-| file://../workflow-controller | workflow-controller | 0.0.6 |
+| file://../agent-proxy | agent-proxy | 0.0.2 |
+| file://../chaos-crds | chaos-crds | 0.0.8 |
+| file://../chaos-exporter | chaos-exporter | 0.0.8 |
+| file://../chaos-operator | chaos-operator | 0.0.9 |
+| file://../subscriber | subscriber | 0.0.10 |
+| file://../workflow-controller | workflow-controller | 0.0.7 |
 
 ## Values
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| affinity | object | `{}` |  |
+| agent-proxy.autoscaling.enabled | bool | `false` |  |
+| agent-proxy.autoscaling.maxReplicas | int | `10` |  |
+| agent-proxy.autoscaling.minReplicas | int | `1` |  |
+| agent-proxy.autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
+| agent-proxy.autoscaling.targetMemoryUtilizationPercentage | int | `80` |  |
+| agent-proxy.env | list | `[]` |  |
+| agent-proxy.image.imagePullSecrets | list | `[]` |  |
+| agent-proxy.image.pullPolicy | string | `"IfNotPresent"` |  |
+| agent-proxy.image.registry | string | `"docker.io"` |  |
+| agent-proxy.image.repository | string | `"harness/chaos-agent-proxy"` |  |
+| agent-proxy.image.tag | string | `"1.45.0"` |  |
+| agent-proxy.podAnnotations | object | `{}` |  |
+| agent-proxy.podLabels | object | `{}` |  |
+| agent-proxy.podSecurityContext.fsGroup | int | `2000` |  |
+| agent-proxy.replicaCount | int | `1` |  |
+| agent-proxy.resources.limits.cpu | string | `"100m"` |  |
+| agent-proxy.resources.limits.memory | string | `"128Mi"` |  |
+| agent-proxy.resources.requests.cpu | string | `"100m"` |  |
+| agent-proxy.resources.requests.memory | string | `"128Mi"` |  |
+| agent-proxy.securityContext.capabilities.drop[0] | string | `"ALL"` |  |
+| agent-proxy.securityContext.readOnlyRootFilesystem | bool | `true` |  |
+| agent-proxy.securityContext.runAsNonRoot | bool | `true` |  |
+| agent-proxy.securityContext.runAsUser | int | `1000` |  |
+| agent-proxy.service.type | string | `"ClusterIP"` |  |
+| agent-proxy.volumeMounts | list | `[]` |  |
+| agent-proxy.volumes | list | `[]` |  |
 | chaos-exporter.affinity | object | `{}` |  |
 | chaos-exporter.image.imagePullSecrets | list | `[]` |  |
 | chaos-exporter.image.pullPolicy | string | `"Always"` |  |
 | chaos-exporter.image.registry | string | `"docker.io"` |  |
 | chaos-exporter.image.repository | string | `"harness/chaos-exporter"` |  |
-| chaos-exporter.image.tag | string | `"1.41.0"` |  |
+| chaos-exporter.image.tag | string | `"1.47.0"` |  |
 | chaos-exporter.nodeSelector | object | `{}` |  |
 | chaos-exporter.resources.limits.cpu | string | `"225m"` |  |
 | chaos-exporter.resources.limits.ephemeral-storage | string | `"1Gi"` |  |
@@ -40,12 +68,12 @@ A Helm chart to install chaos infrastructure
 | chaos-operator.chaosRunner.image.pullPolicy | string | `"Always"` |  |
 | chaos-operator.chaosRunner.image.registry | string | `"docker.io"` |  |
 | chaos-operator.chaosRunner.image.repository | string | `"harness/chaos-runner"` |  |
-| chaos-operator.chaosRunner.image.tag | string | `"1.41.0"` |  |
+| chaos-operator.chaosRunner.image.tag | string | `"1.47.0"` |  |
 | chaos-operator.image.imagePullSecrets | list | `[]` |  |
 | chaos-operator.image.pullPolicy | string | `"Always"` |  |
 | chaos-operator.image.registry | string | `"docker.io"` |  |
 | chaos-operator.image.repository | string | `"harness/chaos-operator"` |  |
-| chaos-operator.image.tag | string | `"1.41.0"` |  |
+| chaos-operator.image.tag | string | `"1.47.0"` |  |
 | chaos-operator.nodeSelector | object | `{}` |  |
 | chaos-operator.resources.limits.cpu | string | `"225m"` |  |
 | chaos-operator.resources.limits.ephemeral-storage | string | `"1Gi"` |  |
@@ -65,6 +93,7 @@ A Helm chart to install chaos infrastructure
 | global.infraId | string | `""` |  |
 | global.serverAddress | string | `"https://app.harness.io/gratis/chaos/kserver/api"` |  |
 | global.workflowInstanceId | string | `""` |  |
+| nodeSelector | object | `{}` |  |
 | subscriber.affinity | object | `{}` |  |
 | subscriber.connectionType | string | `"HTTPS"` |  |
 | subscriber.customTlsCert | string | `""` |  |
@@ -72,7 +101,7 @@ A Helm chart to install chaos infrastructure
 | subscriber.image.pullPolicy | string | `"Always"` |  |
 | subscriber.image.registry | string | `"docker.io"` |  |
 | subscriber.image.repository | string | `"harness/chaos-subscriber"` |  |
-| subscriber.image.tag | string | `"1.41.0"` |  |
+| subscriber.image.tag | string | `"1.47.0"` |  |
 | subscriber.isInfraConfirmed | string | `"false"` |  |
 | subscriber.isSecretEnabled | string | `"true"` |  |
 | subscriber.nodeSelector | object | `{}` |  |
@@ -98,11 +127,13 @@ A Helm chart to install chaos infrastructure
 | subscriber.upgrader.image.pullPolicy | string | `"Always"` |  |
 | subscriber.upgrader.image.registry | string | `"docker.io"` |  |
 | subscriber.upgrader.image.repository | string | `"harness/k8s-chaos-infrastructure-upgrader"` |  |
-| subscriber.upgrader.image.tag | string | `"1.41.0"` |  |
-| subscriber.version | string | `"1.41.0"` |  |
+| subscriber.upgrader.image.tag | string | `"1.47.0"` |  |
+| subscriber.version | string | `"1.47.0"` |  |
+| tags.agentProxy | bool | `false` |  |
 | tags.clusterScopeMode | bool | `false` |  |
 | tags.crdMode | bool | `false` |  |
 | tags.namespaceMode | bool | `false` |  |
+| tolerations | list | `[]` |  |
 | workflow-controller.affinity | object | `{}` |  |
 | workflow-controller.argoExec.image.pullPolicy | string | `"Always"` |  |
 | workflow-controller.argoExec.image.registry | string | `"docker.io"` |  |
