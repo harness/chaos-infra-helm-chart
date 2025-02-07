@@ -3,6 +3,7 @@ tags:
   namespaceMode: false
   crdMode: false
   agentProxy: false
+  ddcrRBAC: false
 global:
   clusterScope:
     enabled: true

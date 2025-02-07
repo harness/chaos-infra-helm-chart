@@ -17,5 +17,8 @@ dependencies:
 - name: agent-proxy
   repository: file://../agent-proxy
   version: 0.0.4
-digest: sha256:f300205a2dc5098095480cd4549a718ef8a46895c4ea8ba7aa78b5cd3940f37c
-generated: "2024-10-10T13:11:14.286581+05:30"
+- name: ddcr-rbac
+  repository: file://../ddcr-rbac
+  version: 0.0.1
+digest: sha256:cc8e2b18d0cf4602756d7de7f71bc9ea61ccf67a029dc7bc6bfc77e559a0759f
+generated: "2025-02-07T15:46:53.848142+05:30"
