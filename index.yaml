@@ -126,6 +126,57 @@ entries:
   chaos-infra:
   - apiVersion: v2
     appVersion: 1.47.0
+    created: "2025-02-07T12:37:47.845392193Z"
+    dependencies:
+    - name: subscriber
+      repository: file://../subscriber
+      tags:
+      - clusterScopeMode
+      - namespaceMode
+      version: 0.0.10
+    - name: workflow-controller
+      repository: file://../workflow-controller
+      tags:
+      - clusterScopeMode
+      - namespaceMode
+      version: 0.0.7
+    - name: chaos-operator
+      repository: file://../chaos-operator
+      tags:
+      - clusterScopeMode
+      - namespaceMode
+      version: 0.0.9
+    - name: chaos-exporter
+      repository: file://../chaos-exporter
+      tags:
+      - clusterScopeMode
+      - namespaceMode
+      version: 0.0.8
+    - name: chaos-crds
+      repository: file://../chaos-crds
+      tags:
+      - clusterScopeMode
+      - crdMode
+      version: 0.0.8
+    - name: agent-proxy
+      repository: file://../agent-proxy
+      tags:
+      - agentProxy
+      version: 0.0.4
+    - name: ddcr-rbac
+      repository: file://../ddcr-rbac
+      tags:
+      - ddcrRBAC
+      version: 0.0.1
+    description: A Helm chart to install chaos infrastructure
+    digest: b1ae9bf8c523a22481e8ad01a313335531ff98206397943b1c3839455f413a86
+    name: chaos-infra
+    type: application
+    urls:
+    - https://github.com/harness/chaos-infra-helm-chart/releases/download/chaos-infra-0.0.15/chaos-infra-0.0.15.tgz
+    version: 0.0.15
+  - apiVersion: v2
+    appVersion: 1.47.0
     created: "2024-10-10T07:48:01.352538743Z"
     dependencies:
     - name: subscriber
@@ -712,4 +763,4 @@ entries:
     urls:
     - https://github.com/harness/chaos-infra-helm-chart/releases/download/workflow-controller-0.0.2/workflow-controller-0.0.2.tgz
     version: 0.0.2
-generated: "2024-10-10T07:48:01.352614544Z"
+generated: "2025-02-07T12:37:47.845479657Z"
