@@ -1,8 +1,9 @@
+
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
-metadata:
-  namespace: {{ .Release.Namespace }}
-  name: {{ include "ddcr-rbac.roleBindingName" . }}
+metadata: 
+  namespace: {{- if eq $.Release.Namespace $.Values.agentNamespace }} {{ $.Release.Namespace }} {{- else }} {{ $.Values.agentNamespace }} {{- end }}
+  name: delegate-role-binding
   labels:
     {{- include "ddcr-rbac.labels" . | nindent 4 }}
   {{- with .Values.roleBinding.annotations }}
@@ -11,9 +12,59 @@ metadata:
   {{- end }}
 subjects:
 - kind: ServiceAccount
-  name: {{ include "ddcr-rbac.serviceAccountName" . }}
-  namespace: {{ .Release.Namespace }}
+  name: {{ $.Values.serviceAccount.name }}
+  namespace: {{ $.Release.Namespace }}
 roleRef:
-  kind: Role
-  name: {{ include "ddcr-rbac.roleName" . }}
+  kind: "{{- if eq $.Release.Namespace $.Values.agentNamespace }}Role{{- else }}ClusterRole{{- end }}"
+  name: chaos-delegate
   apiGroup: rbac.authorization.k8s.io
+---
+{{- if not .Values.clusterScope }}
+{{- $allNamespaces := concat .Values.targetNamespaces (list .Values.agentNamespace) }}
+{{- range $allNamespaces }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: chaos-runner
+  namespace: {{ . }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: chaos-runner
+subjects:
+  - kind: ServiceAccount
+    name: {{ $.Values.serviceAccount.name }}
+    namespace: {{- if eq $.Release.Namespace $.Values.agentNamespace }} {{ $.Release.Namespace }} {{- else }} {{ $.Values.agentNamespace }} {{- end }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: chaos-discovery
+  namespace: {{ . }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: chaos-discovery
+subjects:
+  - kind: ServiceAccount
+    name: {{ $.Values.serviceAccount.name }}
+    namespace: {{- if eq $.Release.Namespace $.Values.agentNamespace }} {{ $.Release.Namespace }} {{- else }} {{ $.Values.agentNamespace }} {{- end }}
+---
+{{- end }}
+{{- end }}
+{{- if ne $.Release.Namespace .Values.agentNamespace -}}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: chaos-discovery-cleanup
+  namespace: {{ $.Values.agentNamespace }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: chaos-delegate
+subjects:
+  - kind: ServiceAccount
+    name: {{ $.Values.serviceAccount.name }}
+    namespace: {{ $.Values.agentNamespace }}
+
+{{- end }}

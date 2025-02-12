@@ -1,7 +1,8 @@
+
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: {{ include "ddcr-rbac.clusterRoleName" . }}
+  name: chaos-discovery
   labels:
     {{- include "ddcr-rbac.labels" . | nindent 4 }}
   {{- with .Values.clusterRole.annotations }}
@@ -25,11 +26,10 @@ rules:
   - ""
   resources:
   - pods
+  - pods/log
   - replicationcontrollers
   - services
   - statefulsets
-  - nodes
-  - namespaces     #(nodes and namespace permissions are required to autocreate network experiments)
   verbs:
   - watch
   - list
@@ -43,7 +43,41 @@ rules:
   - watch
   - list
   - get
-# Chaos permissions
+---
+{{ if .Values.clusterScope -}} 
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: chaos-discovery-network-map
+  labels:
+    {{- include "ddcr-rbac.labels" . | nindent 4 }}
+  {{- with .Values.clusterRole.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - nodes
+  - namespaces     #(nodes and namespace permissions are required to autocreate network experiments)
+  verbs:
+  - watch
+  - list
+  - get
+{{- end }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: chaos-runner
+  labels:
+    {{- include "ddcr-rbac.labels" . | nindent 4 }}
+  {{- with .Values.clusterRole.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+rules:
 - apiGroups:
   - ""
   resources:
@@ -107,3 +141,65 @@ rules:
   verbs:
   - list
   - get
+---
+{{- if ne $.Release.Namespace .Values.agentNamespace -}}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: chaos-delegate
+  labels:
+    {{- include "ddcr-rbac.labels" . | nindent 4 }}
+  {{- with .Values.clusterRole.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+rules:
+- apiGroups:
+  - apps
+  resources:
+  - deployments
+  - replicasets
+  - daemonsets
+  - statefulsets
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+  - deletecollection
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  - pods/log
+  - pods/exec
+  - secrets
+  - services
+  - configmaps
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+  - deletecollection
+- apiGroups:
+  - batch
+  resources:
+  - jobs
+  - cronjobs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+  - deletecollection
+{{- end }}
