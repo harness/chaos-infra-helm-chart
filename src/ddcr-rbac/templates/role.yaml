@@ -1,8 +1,9 @@
+{{- if eq .Release.Namespace .Values.agentNamespace -}}
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   namespace: {{ .Release.Namespace }}
-  name: {{ include "ddcr-rbac.roleName" . }}
+  name: chaos-delegate
   labels:
     {{- include "ddcr-rbac.labels" . | nindent 4 }}
   {{- with .Values.role.annotations }}
@@ -58,3 +59,5 @@ rules:
   - update
   - watch
   - deletecollection
+
+{{- end }}
