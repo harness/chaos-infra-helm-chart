@@ -146,11 +146,8 @@ rules:
   resources:
   - events
   verbs:
-  - create
   - get
   - list
-  - update
-  - watch
 ---
 {{- if ne $.Release.Namespace .Values.agentNamespace -}}
 apiVersion: rbac.authorization.k8s.io/v1
