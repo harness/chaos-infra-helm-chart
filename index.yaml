@@ -661,6 +661,17 @@ entries:
     urls:
     - https://github.com/harness/chaos-infra-helm-chart/releases/download/chaos-operator-0.0.2/chaos-operator-0.0.2.tgz
     version: 0.0.2
+  ddcr-rbac:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-03-11T05:28:21.921890661Z"
+    description: A Helm chart for Kubernetes
+    digest: 926d6a6e433f13c43286ca64381f1cdb13da330614cf07f810f828e16b438255
+    name: ddcr-rbac
+    type: application
+    urls:
+    - https://github.com/harness/chaos-infra-helm-chart/releases/download/ddcr-rbac-0.0.2/ddcr-rbac-0.0.2.tgz
+    version: 0.0.2
   subscriber:
   - apiVersion: v2
     appVersion: 1.41.0
@@ -763,4 +774,4 @@ entries:
     urls:
     - https://github.com/harness/chaos-infra-helm-chart/releases/download/workflow-controller-0.0.2/workflow-controller-0.0.2.tgz
     version: 0.0.2
-generated: "2025-02-07T12:37:47.845479657Z"
+generated: "2025-03-11T05:28:21.921986198Z"
