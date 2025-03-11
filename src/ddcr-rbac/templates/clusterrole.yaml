@@ -44,7 +44,7 @@ rules:
   - list
   - get
 ---
-{{ if .Values.clusterScope -}} 
+{{ if .Values.clusterScope -}}
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
@@ -141,6 +141,16 @@ rules:
   verbs:
   - list
   - get
+- apiGroups:
+  - ""
+  resources:
+  - events
+  verbs:
+  - create
+  - get
+  - list
+  - update
+  - watch
 ---
 {{- if ne $.Release.Namespace .Values.agentNamespace -}}
 apiVersion: rbac.authorization.k8s.io/v1
