@@ -19,6 +19,9 @@ dependencies:
   version: 0.0.4
 - name: ddcr-rbac
   repository: file://../ddcr-rbac
+  version: 0.0.2
+- name: emissary
+  repository: file://../emissary
   version: 0.0.1
-digest: sha256:cc8e2b18d0cf4602756d7de7f71bc9ea61ccf67a029dc7bc6bfc77e559a0759f
-generated: "2025-02-07T15:46:53.848142+05:30"
+digest: sha256:2934c459472ab1dd7688da57d4f5eb0b95425dbe3ff3117a3ce4db94650d5a93
+generated: "2025-05-13T14:21:39.384049+05:30"

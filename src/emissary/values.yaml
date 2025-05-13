@@ -1,0 +1,67 @@
+portalURL: https://app.harness.io/gateway/chaos/kserver/api
+accountIdentifier: ""
+organizationIdentifier: ""
+projectIdentifier: ""
+environmentIdentifier: ""
+infrastructureIdentifier: ""
+infrastructureToken: ""
+
+replicaCount: 1
+
+image:
+  repository: harness/chaos-emissary
+  pullPolicy: IfNotPresent
+  tag: "1.61.0"
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext: {}
+
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 8000
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 256Mi
+  limits:
+    cpu: 200m
+    memory: 512Mi
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: http
+readinessProbe:
+  httpGet:
+    path: /
+    port: http
+
+# Additional volumes on the output Deployment definition.
+volumes: []
+# - name: foo
+#   secret:
+#     secretName: mysecret
+#     optional: false
+
+# Additional volumeMounts on the output Deployment definition.
+volumeMounts: []
+# - name: foo
+#   mountPath: "/etc/foo"
+#   readOnly: true
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
