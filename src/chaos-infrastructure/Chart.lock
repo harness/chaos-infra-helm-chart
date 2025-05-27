@@ -22,6 +22,6 @@ dependencies:
   version: 0.0.2
 - name: emissary
   repository: file://../emissary
-  version: 0.0.1
-digest: sha256:2934c459472ab1dd7688da57d4f5eb0b95425dbe3ff3117a3ce4db94650d5a93
-generated: "2025-05-13T14:21:39.384049+05:30"
+  version: 0.0.2
+digest: sha256:4fddb13b1aef56a67e04e59a979d8b3191ee00cb0f793368a0c2f72372b915b4
+generated: "2025-05-27T13:28:16.974933+05:30"
