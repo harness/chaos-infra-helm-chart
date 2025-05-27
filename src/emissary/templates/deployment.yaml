@@ -42,7 +42,7 @@ spec:
               value: {{ required "A valid organizationIdentifier is required!" .Values.organizationIdentifier }}
             - name: PROJECT_IDENTIFIER
               value: {{ required "A valid projectIdentifier is required!" .Values.projectIdentifier }}
-            - name: ENVIRIONMENT_IDENTIFIER
+            - name: ENVIRONMENT_IDENTIFIER
               value: {{ required "A valid environmentIdentifier is required!" .Values.environmentIdentifier }}
             - name: INFRASTRUCTURE_IDENTIFIER
               value: {{ required "A valid infrastructureIdentifier is required!" .Values.infrastructureIdentifier }}
